@@ -1,0 +1,67 @@
+.app-header {
+  background: $bg-secondary;
+  border-bottom: 1px solid $border-color;
+  padding: $spacing-sm $spacing-md;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  &__logo {
+    font-family: $font-display;
+    font-size: 18px;
+    font-weight: 800;
+    color: $accent-cyan;
+    letter-spacing: -0.5px;
+  }
+
+  &__subtitle {
+    font-size: 11px;
+    color: $text-muted;
+    font-family: $font-mono;
+    display: none;
+
+    @include respond-to(tablet) {
+      display: block;
+      margin-left: $spacing-sm;
+    }
+  }
+
+  @include respond-to(tablet) {
+    padding: $spacing-md $spacing-lg;
+    &__logo { font-size: 22px; }
+  }
+
+  @include respond-to(laptop) {
+    padding: $spacing-md $spacing-xl;
+    &__logo { font-size: 24px; }
+  }
+}
+
+.container {
+  width: 100%;
+  padding: 0 $spacing-md;
+
+  @include respond-to(tablet) {
+    padding: 0 $spacing-lg;
+  }
+
+  @include respond-to(desktop) {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 $spacing-xl;
+  }
+}
+
+.page {
+  padding: $spacing-md 0;
+
+  @include respond-to(tablet) {
+    padding: $spacing-lg 0;
+  }
+
+  @include respond-to(laptop) {
+    padding: $spacing-xl 0;
+  }
+}

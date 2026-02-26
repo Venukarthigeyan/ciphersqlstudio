@@ -1,0 +1,205 @@
+.attempt-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-md;
+
+  @include respond-to(laptop) {
+    grid-template-columns: 340px 1fr;
+    align-items: start;
+  }
+
+  @include respond-to(desktop) {
+    grid-template-columns: 380px 1fr;
+  }
+}
+
+.question-panel {
+  @include card;
+
+  &__back {
+    @include btn-base;
+    background: transparent;
+    color: $text-muted;
+    font-family: $font-mono;
+    font-size: 12px;
+    padding: 0;
+    margin-bottom: $spacing-md;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    &:hover { color: $accent-cyan; }
+  }
+
+  &__difficulty {
+    font-family: $font-mono;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: $accent-cyan;
+    margin-bottom: $spacing-xs;
+  }
+
+  &__title {
+    font-family: $font-display;
+    font-size: clamp(18px, 4vw, 24px);
+    font-weight: 800;
+    margin-bottom: $spacing-md;
+    line-height: 1.2;
+  }
+
+  &__question {
+    font-size: 14px;
+    line-height: 1.7;
+    color: $text-muted;
+    border-left: 2px solid $accent-cyan;
+    padding-left: $spacing-md;
+    margin-bottom: $spacing-lg;
+  }
+}
+
+.schema-viewer {
+  &__title {
+    font-family: $font-mono;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: $text-muted;
+    margin-bottom: $spacing-sm;
+  }
+
+  &__table {
+    @include card;
+    margin-bottom: $spacing-sm;
+    padding: $spacing-sm $spacing-md;
+
+    &-name {
+      font-family: $font-mono;
+      font-size: 13px;
+      color: $accent-yellow;
+      margin-bottom: $spacing-xs;
+    }
+
+    &-cols {
+      display: flex;
+      flex-wrap: wrap;
+      gap: $spacing-xs;
+    }
+
+    &-col {
+      font-family: $font-mono;
+      font-size: 11px;
+      background: $bg-primary;
+      padding: 2px 6px;
+      border-radius: 3px;
+      color: $text-muted;
+      span { color: $text-primary; }
+    }
+  }
+}
+
+.editor-section {
+  @include card;
+  padding: 0;
+  overflow: hidden;
+
+  &__toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: $spacing-sm $spacing-md;
+    border-bottom: 1px solid $border-color;
+    background: $bg-secondary;
+    flex-wrap: wrap;
+    gap: $spacing-sm;
+ 
+    @media (max-width: 400px) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  &__label {
+    font-family: $font-mono;
+    font-size: 12px;
+    color: $text-muted;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  &__actions {
+    display: flex;
+    gap: $spacing-sm;
+    flex-wrap: wrap;
+
+    @media (max-width: 400px) {
+      width: 100%;
+      .btn {
+        flex: 1;
+        text-align: center;
+        justify-content: center;
+      }
+    }
+  }
+}
+
+.btn {
+  @include btn-base; 
+  min-height: 44px;
+  padding: $spacing-sm $spacing-md;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+
+  @include respond-to(tablet) {
+    min-height: 36px;
+  }
+
+  &--primary {
+    background: $accent-cyan;
+    color: $bg-primary;
+    &:hover:not(:disabled) {
+      background: lighten($accent-cyan, 5%);
+      @include glow($accent-cyan);
+    }
+  }
+
+  &--secondary {
+    background: $bg-primary;
+    color: $text-primary;
+    border: 1px solid $border-color;
+    &:hover:not(:disabled) { border-color: $accent-cyan; color: $accent-cyan; }
+  }
+
+  &--hint {
+    background: rgba($accent-yellow, 0.1);
+    color: $accent-yellow;
+    border: 1px solid rgba($accent-yellow, 0.3);
+    &:hover:not(:disabled) {
+      background: rgba($accent-yellow, 0.2);
+      @include glow($accent-yellow);
+    }
+  }
+}
+
+.hint-panel {
+  margin: 0 $spacing-md $spacing-md;
+  padding: $spacing-md;
+  background: rgba($accent-yellow, 0.06);
+  border: 1px solid rgba($accent-yellow, 0.25);
+  border-radius: 6px;
+
+  &__label {
+    font-family: $font-mono;
+    font-size: 11px;
+    color: $accent-yellow;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: $spacing-xs;
+  }
+
+  &__text {
+    font-size: 14px;
+    line-height: 1.6;
+    color: $text-primary;
+  }
+}
